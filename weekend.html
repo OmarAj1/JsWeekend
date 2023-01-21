@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+<script>
+    // q1 
+
+    function YES_OR_NO(YN) {
+        if (YN)
+            return 'Yes';
+        else
+            return 'NO'
+    }
+    // console.log(YES_OR_NO(true));
+
+    //q2.1
+    function Sum_of_lowest_numbers(arr) {
+        arr.sort();
+        return arr[0] + arr[1];
+    }
+    // console.log(Sum_of_lowest_numbers([10, 343445353, 3453445, 3453545353453]));
+
+    //q2.2
+
+    const One_and_Zero = arr => {
+        const binaryString = arr.join("");
+        return parseInt(binaryString, 2);
+    };
+    // console.log(One_and_Zero([0, 1, 1, 1]));
+    // from [0, 1, 1, 1] to 0111 then translate it  
+    //q2.3 
+    function findNextSquare(n) {
+        if (Math.sqrt(n) % 1 === 0) {
+            return (Math.sqrt(n) + 1) ** 2
+        } else {
+            return -1;
+        }
+    }
+    // console.log(findNextSquare(65));
+
+    //q2.4
+    function findUniq(arr) {
+        return arr.filter(num => arr.count(num) === 1)[0];
+    }
+
+    //q2.5
+    function Summation(n) {
+        let sum = 0;
+        for (let i = 1; i <= n; i++) {
+            sum += i;
+        }
+        // console.log(sum);
+    }
+    Summation(50)
+
+    // or simply by 
+    function Summation(n) {
+        // console.log((n - 1) * n / 2);
+    }
+    Summation(50)
+        // OR
+    function Summation(n) {
+        let arr = [];
+        for (let i = 0; i < n; i++) {
+            arr.push(arr[i] = i + 1);
+        }
+        arr.pop();
+        // console.log(arr.reduce((a, c) => a + c));
+    }
+    Summation(50)
+
+    //q2.6 
+    function centuryFromYear(year) {
+        if (year % 1000 === 0) {
+            return (year / 100) + 1;
+        } else
+            return Math.ceil(year / 100);
+    }
+    // console.log(centuryFromYear(2000));
+
+    //q2.7 
+    function basicOp(operation, value1, value2) {
+        switch (operation) {
+
+            //  value "operation" value2 ?
+            case "+":
+                return value1 + value2
+                break;
+            case "*":
+                return value1 * value2
+                break;
+            case "/":
+                return value1 / value2
+                break;
+            case "-":
+                return value1 - value2
+        }
+    }
+    // OR 
+    function basicOp(operation, value1, value2) {
+        return eval(value1 + operation + value2);
+    }
+
+    //q3.1
+    function nb_year(p0, percent, aug, p) {
+        let n = 0;
+        percent = percent / 100;
+        while (p0 < p) {
+            p0 += p0 * percent + aug;
+            n++;
+        }
+        console.log(n);
+    }
+    // console.log(nb_year(1000, 2, 50,1800));
+    // OR - using recursion
+    function nb_year(p0, percent, aug, p) {
+        percent = percent / 100;
+        if (p0 < p)
+            return 1 + nb_year(p0 + p0 * percent + aug, percent, aug, p);
+        else
+            return 0;
+    }
+    //Once the condition is met, the function stops calling itself.
+    //  **  This is called a base condition.
+
+
+    //Ex3.2
+    function People_on_the_Bus(arrOfobjs) {
+        arrOfobjs = {
+            add,
+            less
+        }
+
+    }
+    // Ex4 .1 - Fibonacci 
+    function fibonacci(num, StartWith) {
+        let arr = [];
+        //start with
+        if (StartWith === 0) {
+            arr = [0, 1]
+        } else if (StartWith === 1) {
+            arr = [1, 1]
+        }
+
+        for (let i = 2; i <= num; i++) {
+            arr.push(arr[i - 1] + arr[i - 2]);
+        }
+        // [0, 1, 1, 2, 3, 5, 8, 13]
+        return arr;
+    }
+    // console.log(fibonacci(7, 0));
+
+    // Ex4 .2 - Tribonacci
+    function fibonacci(num, StartWith) {
+        let arr = [];
+        //start with
+        if (StartWith === 0) {
+            arr = [0, 1, 1]
+        } else if (StartWith === 1) {
+            arr = [1, 1, 1]
+        }
+
+        for (let i = 3; i <= num; i++) {
+            arr.push(arr[i - 1] + arr[i - 2] + arr[i - 3]);
+        }
+        // [1, 1, 1, 3, 5, 9, 17, 31]
+        return arr;
+    }
+    // console.log(fibonacci(7, 1));
+
+
+    //Ex5.1 straightforward 
+    function straightforward(str) {
+        if (str.length < 2) {
+            return str
+        }
+        res = str.slice(1, str.length - 1)
+        return res;
+    }
+    // console.log(straightforward("Dan brown")); //el   
+
+    // ex5.2
+    function repeat_str(num, str) {
+        let arr = [];
+        for (let i = 0; i < num; i++) {
+            arr.push(str)
+        }
+        arr = arr.toString();
+        return arr;
+    }
+    // console.log(repeat_str(8, "Dan brown"));
+
+    //ex5.3
+    function toCamelCase(str) {
+        str = str.replace(/-/g, "_");
+        //to be sure that the splitter is underscore
+        str = str.split('_', );
+        for (let i = 1; i < str.length; i++) {
+            str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+        }
+        return str.join('');
+    }
+    // console.log(toCamelCase("Dan-brown"));
+    //ex5.4
+    function toWeirdCase(string) {
+        return string
+            .split(" ")
+            //to split the input string into an array of words
+            .map(word => Array.from(word)
+                // to convert every word into an array of characters
+                .map((c, i) => i % 2 === 0 ? c.toUpperCase() : c.toLowerCase())
+                // map converts even index into uppercase
+                .join("")
+                //join all the characters
+            )
+            .join(" ");
+        //join all the words with space
+    }
+    // console.log(toWeirdCase("String"));
+
+    //ex5.5
+    function Abbreviate_two_words(str) {
+        str = str.split(" ");
+
+        for (let i = 0; i < str.length; i++) {
+            str[i] = str[i].charAt(0).toUpperCase();
+        }
+        return str[0] + '.' + str[1];
+    }
+    // console.log(Abbreviate_two_words("Dan Brown"));
+    //ex5.6
+    function maskify(str) {
+        let newpass1 = str.substring(0, str.length - 4)
+        let last = str.substring(str.length - 4, str.length);
+        let arr = [];
+        for (let i = 0; i <= newpass1.length; i++) {
+            arr.push("#")
+        }
+        arr.push(last)
+        return (arr.join(''));
+    }
+    // console.log(maskify("Dan brown1231444"));
+
+    //ex5.7
+    function shortest(str) {
+        arr = str.split(" ");
+        arr.sort(function(a, b) {
+            return a.length - b.length;
+        })
+        return arr[0];
+        //ex5.8
+        return arr[arr.length - 1]
+    }
+    // console.log(shortest("Dan brown"));
+
+    //ex6.1
+    // it should copy every char depends on its index in the word can you debug it and 
+    // depend on my code when solving it
+    function accum(str) {
+        arrayofstr = str.split('');
+        for (let i = 0; i < arrayofstr.length; i++) {
+            arrayofstr[i] = arrayofstr[i].toUpperCase() + arrayofstr[i].repeat(i);
+        }
+        return arrayofstr.join("-");
+    }
+    // console.log(accum('Dan brown'));
+
+    //Ex 6.2
+
+    //Ex 6.3 
+    function uniqueChars(str1, str2) {
+
+        let uniqueChars1 = "";
+        let uniqueChars2 = "";
+        for (let i = 0; i < str1.length; i++) {
+            if (!uniqueChars1.includes(str1[i])) {
+                uniqueChars1 += str1[i];
+            }
+        }
+        for (let i = 0; i < str2.length; i++) {
+            if (!uniqueChars2.includes(str2[i])) {
+                uniqueChars2 += str2[i];
+            }
+        }
+        if (uniqueChars1.length > uniqueChars2.length) {
+            return uniqueChars1;
+        } else if (uniqueChars2.length > uniqueChars1.length) {
+            return uniqueChars2;
+        } else {
+            return "Both strings have the same number of unique characters.";
+        }
+    }
+    // console.log(uniqueChars("Dan Brown", "Dan eyobrowns"));
+
+    //Ex 6.4 
+    function uniqueChars1(str) {
+        str = str.toLowerCase();
+        let uniqueChars1 = "";
+        for (let i = 0; i < str.length; i++) {
+            if (!uniqueChars1.includes(str[i])) {
+                uniqueChars1 += str[i];
+            }
+        }
+        if (uniqueChars1.length < str.length) {
+            return false;
+        }
+        return true;
+
+    }
+    console.log(uniqueChars1("abx"));
+    //Ex 7 
+
+    //Ex 8
+    function findPerimeter(length, breadth) {
+        let res = 0;
+        res += 2 * length + 2 * breadth
+
+        return res;
+    }
+    // console.log(findPerimeter(20, 10));
+</script>
+
+</html>
